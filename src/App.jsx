@@ -17,7 +17,6 @@ import Profile from "./components/Profile";
 import Courses from "./components/Courses";
 import Students from "./components/Students";
 import Feeplan from "./components/Feeplan";
-import FeePayment from "../../server/models/FeePayment";
 import Feepayment from "./components/Feepayment";
 import FeeSummary from "./components/FeeSummary";
 
