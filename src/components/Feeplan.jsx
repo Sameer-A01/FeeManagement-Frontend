@@ -692,6 +692,7 @@ const FeePlanModal = ({ isEdit, plan, onClose, onSuccess }) => {
           )}
         </form>
       </div>
+    
     </div>
   );
 };
@@ -870,6 +871,7 @@ const ViewFeePlanModal = ({ plan, onClose }) => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

@@ -675,6 +675,12 @@ const FeeSummary = () => {
           </div>
         )}
       </div>
+    
+      <footer className="bg-white py-4 border-t mt-8">
+        <div className="container mx-auto px-4 text-center text-sm text-gray-500">
+          Designed and developed by <a href="https://webaziz.in" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">webaziz.in</a>
+        </div>
+      </footer>
     </div>
   );
 };

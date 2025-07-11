@@ -273,7 +273,6 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Footer */}
 {/* Footer */}
 <footer className="bg-white/70 backdrop-blur-sm border-t border-white/20 mt-12">
   <div className="container mx-auto px-6 py-8">

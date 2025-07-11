@@ -11,9 +11,10 @@ import {
   FaSignOutAlt,
   FaBoxOpen,
   FaShoppingCart,
+  FaBars,
 } from 'react-icons/fa';
 
-const Sidebar = () => {
+const Sidebar = ({ isCollapsed, toggleSidebar, isMobile }) => {
   const menuItems = [
     { name: 'Fee Summary', path: '/admin-dashboard/Fee Summary', icon: <FaMoneyCheckAlt /> },
     { name: 'Fee Plan', path: '/admin-dashboard/Fee Plan', icon: <FaFileInvoiceDollar /> },
@@ -42,11 +43,21 @@ const Sidebar = () => {
   }, []);
 
   return (
-    <div className="fixed h-screen bg-gray-900 text-white w-16 md:w-64 flex flex-col">
-      {/* Branding */}
-      <div className="h-16 flex items-center justify-center md:justify-start md:px-6 border-b border-gray-800">
-        <span className="hidden md:block text-xl font-semibold">FEE MANAGEMENT</span>
-        <span className="block md:hidden text-xl font-bold">FMS</span>
+    <div 
+      className={`fixed h-screen bg-gray-900 text-white ${isCollapsed ? 'w-16' : 'w-64'} flex flex-col transition-all duration-300 ease-in-out z-10`}
+    >
+      {/* Branding with toggle button */}
+      <div className="h-16 flex items-center justify-between px-4 border-b border-gray-800">
+        {!isCollapsed && <span className="text-xl font-semibold">FEE MANAGEMENT</span>}
+        {isCollapsed && <span className="text-xl font-bold">FMS</span>}
+        {!isMobile && (
+          <button 
+            onClick={toggleSidebar}
+            className="p-2 rounded-md hover:bg-gray-800 transition-colors"
+          >
+            <FaBars />
+          </button>
+        )}
       </div>
 
       {/* Menu */}
@@ -63,7 +74,7 @@ const Sidebar = () => {
                 }
               >
                 <span className="text-lg">{item.icon}</span>
-                <span className="hidden md:block">{item.name}</span>
+                {!isCollapsed && <span>{item.name}</span>}
               </NavLink>
             </li>
           ))}
@@ -71,17 +82,18 @@ const Sidebar = () => {
       </nav>
 
       {/* Footer */}
-    <div className="hidden md:block p-4 text-center text-xs text-gray-400 border-t border-gray-800">
-  <a
-    href="https://webaziz.in"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:text-white transition-colors"
-  >
-    © webaziz.in
-  </a>
-</div>
-
+      {!isCollapsed && (
+        <div className="p-4 text-center text-xs text-gray-400 border-t border-gray-800">
+          <a
+            href="https://webaziz.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            © webaziz.in
+          </a>
+        </div>
+      )}
     </div>
   );
 };
